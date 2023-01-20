@@ -63,14 +63,15 @@ public class servicioProducto {
         if (productos.containsKey(nombre)) {
             System.out.println("Ingrese el precio actualizado");
             Integer valor = scan.nextInt();
+            productos.put(nombre, valor);
             
-            for (Map.Entry<String, Integer> prod : productos.entrySet()) {
-                String key = prod.getKey();
-
-                if (key.equals(nombre)) {
-                    prod.setValue(valor);
-                }
-            }
+//            for (Map.Entry<String, Integer> prod : productos.entrySet()) {
+//                String key = prod.getKey();
+//
+//                if (key.equals(nombre)) {
+//                    prod.setValue(valor);
+//                }
+//            }
         } else {
             System.out.println("El producto no existe");
         }
