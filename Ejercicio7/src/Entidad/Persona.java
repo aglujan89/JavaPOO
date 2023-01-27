@@ -17,7 +17,7 @@ public class Persona {
     private double peso;
     private double altura;
 
-    public Persona() {
+    public Persona(String juan, String perez, DNI dni) {
     }
 
     public Persona(String nombre, String sexo, int edad, double peso, double altura) {

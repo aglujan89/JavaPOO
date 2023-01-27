@@ -17,7 +17,7 @@ public class ServicioPersona {
     public Scanner scan = new Scanner(System.in).useDelimiter("\n");
     
     public Persona crearPersona(){
-    Persona p = new Persona();
+    Persona p = new Persona("Juan", "Perez", new DNI("A", 3377733));
         System.out.println("Ingrese nombre: ");
         p.setNombre(scan.next());
         System.out.println("Ingrese su edad: ");
