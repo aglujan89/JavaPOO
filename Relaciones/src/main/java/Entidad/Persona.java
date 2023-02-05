@@ -10,13 +10,13 @@ package Entidad;
 public class Persona {
     private String nombre;
     private String apellido;
-    private DNI dni;
+    private Integer dni;
     private Perro perro;
 
     public Persona() {
     }
 
-    public Persona(String nombre, String apellido, DNI dni, Perro perro) {
+    public Persona(String nombre, String apellido, Integer dni, Perro perro) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
@@ -39,11 +39,11 @@ public class Persona {
         this.apellido = apellido;
     }
 
-    public DNI getDni() {
+    public Integer getDni() {
         return dni;
     }
 
-    public void setDni(DNI dni) {
+    public void setDni(Integer dni) {
         this.dni = dni;
     }
 
@@ -57,7 +57,7 @@ public class Persona {
 
     @Override
     public String toString() {
-        return "Persona{" + "nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", perro=" + perro + '}';
+        return "Persona{" + "nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", perro=" + perro + "\n" + '}';
     }
    
 

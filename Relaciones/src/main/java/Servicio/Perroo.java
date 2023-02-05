@@ -1,28 +1,27 @@
 /*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Entidad;
+package Entities;
 
 /**
+ * Perro, que tendrá como atributos: nombre, raza, edad y tamaño;
  *
- * @author fitog
+ * @author Kidver
  */
 public class Perro {
     private String nombre;
     private String raza;
-    private Integer edad;
-    private String tam;
+    private String tamaño;
     private Persona persona;
 
     public Perro() {
     }
 
-    public Perro(String nombre, String raza, Integer edad, String tam, Persona persona) {
+    public Perro(String nombre, String raza, String tamaño) {
         this.nombre = nombre;
         this.raza = raza;
-        this.edad = edad;
-        this.tam = tam;
-        this.persona = persona;
-        
+        this.tamaño = tamaño;
     }
 
     public String getNombre() {
@@ -41,20 +40,12 @@ public class Perro {
         this.raza = raza;
     }
 
-    public Integer getEdad() {
-        return edad;
+    public String getTamaño() {
+        return tamaño;
     }
 
-    public void setEdad(Integer edad) {
-        this.edad = edad;
-    }
-
-    public String getTam() {
-        return tam;
-    }
-
-    public void setTam(String tam) {
-        this.tam = tam;
+    public void setTamaño(String tamaño) {
+        this.tamaño = tamaño;
     }
 
     public Persona getPersona() {
@@ -67,17 +58,9 @@ public class Perro {
 
     @Override
     public String toString() {
-        return "nombre=" + nombre + ", raza=" + raza + ", edad=" + edad + ", tam=" + tam + "\n";
+        return " nombre: " + nombre + ", raza: " + raza + " " + tamaño + "\n";
     }
+    
+    
 
-    
-  
-    
-    
-    
-   
-    
-    
-    
-    
-}
+}//end
