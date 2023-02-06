@@ -1,6 +1,6 @@
 /*
  */
-package relacionesejextra3;
+package relacionesejextra2;
 
 import Servicio.ServicioCine;
 import java.util.Scanner;
@@ -9,7 +9,7 @@ import java.util.Scanner;
  *
  * @author fitog
  */
-public class RelacionesEjextra3Cines {
+public class RelacionesEjextra2Cines {
 
     /**
      */
