@@ -32,6 +32,7 @@ public class AdoptarPerros {
         serv.mostrarPersonas();
         serv.adoptar();
         serv.mostrarPersonas();
+  
        
         
     }
