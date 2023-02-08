@@ -17,7 +17,7 @@ public class RelacionesEjextra2Cines {
     public static Scanner scan = new Scanner(System.in).useDelimiter("\n");
     
     public static void main(String[] args) {
-        ServicioCine serv = new ServicioCine();
+        ServicioCine serv = new ServicioCine(); 
         serv.crearSala();
         // serv.mostrarSala();
         serv.sentar();
