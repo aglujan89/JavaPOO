@@ -71,6 +71,7 @@ public class Simulador {
         }
     }
 
+//    Agrego los DNI generados a la lista de alumnos
     public void crearAlumnos() {
         listaAlumnos();
         generarDni();
@@ -82,6 +83,7 @@ public class Simulador {
         }
     }
 
+//    Muestra los alumnos de la lista
     public void mostrarAlumnos() {
         for (Alumno listaAl : Alumnos) {
             System.out.println(listaAl);
