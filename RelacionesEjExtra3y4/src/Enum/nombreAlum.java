@@ -1,0 +1,13 @@
+/*
+ */
+package Enum;
+
+/**
+ *
+ * @author fitog
+ */
+public enum nombreAlum {
+    NATALIA, MILAGRO, AGUSTINA, BELEN, ANDREA, SOFIA, LOURDES, LUCIA, LAURA, DELFINA, BRUNO, ROSA, ANDRES, GONZALO, PEDRO, MAURICIO, ARIEL, MARCELO, GERMAN, SAMUEL, FEDERICO, SANTIAGO;
+
+    
+}
