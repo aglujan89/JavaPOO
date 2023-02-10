@@ -104,11 +104,11 @@ public class Simulador {
             if (!(alumaux == alumno)) {
                 if (!(listx.contains(alumaux))) {
                     listx.add(alumaux);
-//                    for (Alumno alumnoX : Alumnos) {
-//                        if (alumaux == alumnoX) {
-//                            alumnoX.setCantVotos(alumnoX.getCantVotos() + 1);
-//                        }
-//                    }
+                    for (Alumno alumnoX : Alumnos) {
+                        if (alumaux == alumnoX) {
+                            alumnoX.setCantVotos(alumnoX.getCantVotos() + 1);
+                        }
+                    }
                 }
             }
         }

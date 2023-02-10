@@ -17,7 +17,7 @@ public class Alumno {
     public Alumno(String nombre, Integer dni, Integer cantVotos) {
         this.nombre = nombre;
         this.dni = dni;
-        this.cantVotos = cantVotos;
+        this.cantVotos = 0;
     }
 
     public String getNombre() {
