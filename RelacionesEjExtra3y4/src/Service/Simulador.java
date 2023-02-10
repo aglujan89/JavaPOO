@@ -3,10 +3,13 @@
 package Service;
 
 import Entities.Alumno;
+import Entities.Voto;
 import Enum.apellidoAlum;
 import Enum.nombreAlum;
 import static LaTerceraSeguros.VotaEgg.scan;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -16,10 +19,12 @@ public class Simulador {
 
     private ArrayList<Alumno> Alumnos;
     private ArrayList<Integer> auxdni;
+    private ArrayList<Voto> votos;
 
     public Simulador() {
         this.Alumnos = new ArrayList();
         this.auxdni = new ArrayList();
+        this.votos = new ArrayList();
     }
 
     public void listaAlumnos() {
@@ -75,11 +80,10 @@ public class Simulador {
     public void crearAlumnos() {
         listaAlumnos();
         generarDni();
-        int cero = -1;
+        int cero = 0;
         for (Alumno Alumno1 : Alumnos) {
-            cero++;
             Alumno1.setDni(auxdni.get(cero));
-
+            cero++;
         }
     }
 
@@ -89,6 +93,39 @@ public class Simulador {
             System.out.println(listaAl);
         }
 
+    }
+
+    public void votar(Alumno alumno) {
+        Voto vx = new Voto();
+        vx.setAlumnoVotante(alumno);
+        HashSet listx = new HashSet();
+        for (int i = 0; i < 3; i++) {
+            Alumno alumaux = Alumnos.get((int) (Math.random() * Alumnos.size()));
+            if (!(alumaux == alumno)) {
+                if (!(listx.contains(alumaux))) {
+                    listx.add(alumaux);
+//                    for (Alumno alumnoX : Alumnos) {
+//                        if (alumaux == alumnoX) {
+//                            alumnoX.setCantVotos(alumnoX.getCantVotos() + 1);
+//                        }
+//                    }
+                }
+            }
+        }
+        vx.setAlumnosVotados(listx);
+        votos.add(vx);
+    }
+
+    public void iniciarVotacion() {
+        for (Alumno Alumno1 : Alumnos) {
+            votar(Alumno1);
+        }
+    }
+    
+    public void mostrarVotos(){
+        for (Voto Votos1 : votos) {
+            System.out.println(Votos1);
+        }
     }
 
 }

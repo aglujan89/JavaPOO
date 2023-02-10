@@ -12,7 +12,6 @@ import java.util.Scanner;
 public class VotaEgg {
 
     /**
-     * @param args the command line arguments
      */
     public static Scanner scan = new Scanner(System.in).useDelimiter("\n");
 
@@ -20,10 +19,12 @@ public class VotaEgg {
 
         Simulador serv = new Simulador();
 
-//        serv.listaAlumnos();
-//        serv.generarDni();
         serv.crearAlumnos();
+//        serv.mostrarAlumnos();
+        serv.iniciarVotacion();
         serv.mostrarAlumnos();
+        System.out.println("---------------------------------votos------------------------------");
+        serv.mostrarVotos();
 
     }
 
