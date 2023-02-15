@@ -65,12 +65,12 @@ public class Simulador {
 //    Genero DNI random y devuelvo lista
     public void generarDni() {
         int cantidadDni = Alumnos.size();
-
+        int n;
         for (int i = 0; i < cantidadDni; i++) {
-            int n = (int) (Math.random() * 45000000 + 10000000);
-            if (auxdni.contains(n)) {
-                continue;
-            }
+
+            do {
+                n = (int) (Math.random() * 45000000 + 10000000);
+            } while (auxdni.contains(n));
             auxdni.add(n);
 
         }
@@ -100,29 +100,49 @@ public class Simulador {
         vx.setAlumnoVotante(alumno);
         HashSet listx = new HashSet();
         for (int i = 0; i < 3; i++) {
-            Alumno alumaux = Alumnos.get((int) (Math.random() * Alumnos.size()));
-            if (!(alumaux == alumno)) {
-                if (!(listx.contains(alumaux))) {
-                    listx.add(alumaux);
-                    for (Alumno alumnoX : Alumnos) {
-                        if (alumaux == alumnoX) {
-                            alumnoX.setCantVotos(alumnoX.getCantVotos() + 1);
-                        }
-                    }
+            Alumno alumaux = new Alumno();
+            do {
+                alumaux = Alumnos.get((int) (Math.random() * Alumnos.size()));
+            } while ((alumaux == alumno) || (listx.contains(alumaux)));
+            listx.add(alumaux);
+
+            for (Alumno alumnoX : Alumnos) {
+                if (alumaux == alumnoX) {
+                    alumnoX.setCantVotos(alumnoX.getCantVotos() + 1);
                 }
             }
         }
         vx.setAlumnosVotados(listx);
         votos.add(vx);
     }
+    //     public void votar(Alumno alumno) {
+    //        Voto vx = new Voto();
+    //        vx.setAlumnoVotante(alumno);
+    //        HashSet listx = new HashSet();
+    //        for (int i = 0; i < 3; i++) {
+    //            Alumno alumaux = Alumnos.get((int) (Math.random() * Alumnos.size()));
+    //            if (!(alumaux == alumno)) {
+    //                if (!(listx.contains(alumaux))) {
+    //                    listx.add(alumaux);
+    //                    for (Alumno alumnoX : Alumnos) {
+    //                        if (alumaux == alumnoX) {
+    //                            alumnoX.setCantVotos(alumnoX.getCantVotos() + 1);
+    //                        }
+    //                    }
+    //                }
+    //            }
+    //        }
+    //        vx.setAlumnosVotados(listx);
+    //        votos.add(vx);
+    //    }
 
     public void iniciarVotacion() {
         for (Alumno Alumno1 : Alumnos) {
             votar(Alumno1);
         }
     }
-    
-    public void mostrarVotos(){
+
+    public void mostrarVotos() {
         for (Voto Votos1 : votos) {
             System.out.println(Votos1);
         }
