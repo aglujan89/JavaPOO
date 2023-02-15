@@ -63,33 +63,33 @@ public class Electrodomestico {
 
     
     
-    public void crearElectrodomestico(){
-        this.precio = 1000;
+    public void crearElectrodomestico(Electrodomestico elecX){
+        elecX.precio = 1000;
         System.out.println("El precio base es de " + precio);
         System.out.println("Ingrese el consumo energetico del electrodomestico: ");
-        comprobarConsumoEnergetico();
+        comprobarConsumoEnergetico(elecX);
         System.out.println("Ingrese el color del electrodomestico: ");
-        comprobarColor();
+        comprobarColor(elecX);
         System.out.println("Ingrese el peso del electrodomestico");
-        this.peso = scan.nextInt();
-        precioFinalPeso();
-        precioFinalConsumo();
-        System.out.println(precio);
+        elecX.setPeso(scan.nextInt());
+        precioFinalPeso(elecX);
+        precioFinalConsumo(elecX);
+        System.out.println(elecX.getPrecio());
         
     }
     
-    private void comprobarConsumoEnergetico(){
+    private void comprobarConsumoEnergetico(Electrodomestico elecX){
         System.out.println("A, B, C, D, E o F");
         char letra = scan.next().charAt(0);
 
         if (letra !='a' && letra !='b'&& letra !='c'&& letra !='d'&& letra !='e'&& letra !='e'&& letra !='A'&& letra !='B'&& letra !='C'&& letra !='D'&& letra !='E'){
-            this.consumo = 'f';
+           elecX.setConsumo('f');
         }else{
-            this.consumo = letra;
+           elecX.setConsumo(letra);
         }
     }
     
-    private void comprobarColor(){
+    private void comprobarColor(Electrodomestico elecX){
         System.out.println("Los colores disponibles son: ");      
         for (Color aux : Color.values()) {
             System.out.println(aux.toString());
@@ -98,54 +98,54 @@ public class Electrodomestico {
         String color2 = scan.next();
         for (Color aux : Color.values()) {
             if (aux.name().equalsIgnoreCase(color2)) {
-                this.color=aux;
+                elecX.setColor(aux);
                 break;
             }else{
-                this.color=aux.BLANCO;
+                elecX.setColor(aux.BLANCO);
             }
         }
         
     }
     
-    private void precioFinalPeso(){
+    private void precioFinalPeso(Electrodomestico elecX){
      
        
-        if (peso>=1 && peso<19){
-            this.precio = precio +100;
+        if (elecX.getPeso()>=1 && elecX.getPeso()<19){
+            elecX.setPrecio(elecX.getPrecio()+100);
         }
-        if (peso>=20 && peso<49){
-            this.precio = precio +500;
+        if (elecX.getPeso()>=20 && elecX.getPeso()<49){
+            elecX.setPrecio(elecX.getPrecio()+500);
         }
-        if (peso>=50 && peso<79){
-            this.precio = precio +800;
+        if (elecX.getPeso()>=50 && elecX.getPeso()<79){
+           elecX.setPrecio(elecX.getPrecio()+800);
         }
-        if (peso>=80) {
-            this.precio = precio +1000;
-        }
-    }
-    
-    private void precioFinalConsumo(){
-        if(consumo == 'a' || consumo == 'A'){
-            this.precio = precio +1000;
-        }
-        if(consumo == 'b' || consumo == 'B'){
-            this.precio = precio +800;
-        }
-        if(consumo == 'c'|| consumo == 'C'){
-            this.precio = precio +600;
-        }
-        if(consumo == 'd'|| consumo == 'D'){
-            this.precio = precio +500;
-        }
-        if(consumo == 'e'|| consumo == 'E'){
-          this.precio = precio +300;
-        }
-        if(consumo == 'f'|| consumo == 'F'){
-            this.precio = precio +100;
+        if (elecX.getPeso()>=80){
+            elecX.setPrecio(elecX.getPrecio()+1000);
         }
     }
     
-    public void menuElectrodomestico(){
+    private void precioFinalConsumo(Electrodomestico elecX){
+        if(elecX.getConsumo() == 'a' || elecX.getConsumo() == 'A'){
+            elecX.setPrecio(elecX.getPrecio()+1000);
+        }
+        if(elecX.getConsumo() == 'b' || elecX.getConsumo() == 'B'){
+            elecX.setPrecio(elecX.getPrecio()+800);
+        }
+        if(elecX.getConsumo() == 'c' || elecX.getConsumo() == 'C'){
+            elecX.setPrecio(elecX.getPrecio()+600);
+        }
+        if(elecX.getConsumo() == 'd' || elecX.getConsumo() == 'D'){
+            elecX.setPrecio(elecX.getPrecio()+500);
+        }
+        if(elecX.getConsumo() == 'e' || elecX.getConsumo() == 'E'){
+            elecX.setPrecio(elecX.getPrecio()+300);
+        }
+        if(elecX.getConsumo() == 'f' || elecX.getConsumo() == 'F'){
+            elecX.setPrecio(elecX.getPrecio()+100);
+        }
+    }
+    
+    public void menuElectrodomestico(Electrodomestico e1){
         System.out.println("Que electrodomestico cotizar?");
         System.out.println("1.Lavadora"+"\n");
         System.out.println("2.Televisor"+"\n");
@@ -154,18 +154,22 @@ public class Electrodomestico {
         switch(electro){
             case 1: 
                 Lavadora lava = new Lavadora();
-                lava.crearLavadora();
+                lava.crearLavadora(lava);
                 break;
             case 2:
                 Televisor tele = new Televisor();
-                tele.crearTele();
+                tele.crearTele(tele);
                 break;
             case 3:
                 break;
         }
-            
-                
+               
                 
     }    
+
+    @Override
+    public String toString() {
+        return "Electrodomestico{" + "precio=" + precio + ", color=" + color + ", consumo=" + consumo + ", peso=" + peso + '}';
+    }
     
 }

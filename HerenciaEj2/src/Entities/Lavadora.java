@@ -28,21 +28,26 @@ public final class Lavadora extends Electrodomestico{
 
    
     
-     public void crearLavadora(){
-      super.crearElectrodomestico();
+     public void crearLavadora(Lavadora lava){
+      super.crearElectrodomestico(lava);
       System.out.println("Indique la carga del lavarropas: ");
-      this.carga = scan.nextInt();
-     precioFinal();
+      lava.setCarga(scan.nextInt());
+     precioFinal(lava);
   }
    
-     public void precioFinal(){
-    super.getPrecio();
-    System.out.println(precio);
+     public void precioFinal(Lavadora lava){
+    lava.getPrecio();
+    System.out.println(lava.getPrecio());
     if (carga > 30) {
-        super.setPrecio( precio + 500);
+        lava.setPrecio(lava.getPrecio()+ 500);
     }
-    System.out.println("El precio final de su lavadora es: " + precio);
+    System.out.println("El precio final de su lavadora es: " + lava.getPrecio());
 }
+
+    @Override
+    public String toString() {
+        return "Lavadora{" + "carga=" + carga + '}';
+    }
      
     
 }

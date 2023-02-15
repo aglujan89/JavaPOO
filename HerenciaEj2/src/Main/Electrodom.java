@@ -3,8 +3,7 @@
 package Main;
 
 import Entities.Electrodomestico;
-import Entities.Lavadora;
-import Entities.Televisor;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -66,8 +65,34 @@ public class Electrodom {
     public static Scanner scan = new Scanner(System.in);
     
     public static void main(String[] args) {
+        
+        ArrayList<Electrodomestico> listaElectro = new ArrayList();
+        
         Electrodomestico e1 = new Electrodomestico();
-        e1.menuElectrodomestico();
+        e1.menuElectrodomestico(e1);
+        listaElectro.add(e1);
+        System.out.println("---------------Listo electro 1-----------------");
+        
+        Electrodomestico e2 = new Electrodomestico();
+        e2.menuElectrodomestico(e2);
+        listaElectro.add(e2);
+        System.out.println("---------------Listo electro 2-----------------");
+        
+//        Electrodomestico e3 = new Electrodomestico();
+//        e3.menuElectrodomestico();   
+//        listaElectro.add(e3);
+//        System.out.println("---------------Listo electro 3-----------------");
+//        
+//        Electrodomestico e4 = new Electrodomestico();
+//        e2.menuElectrodomestico();
+//        listaElectro.add(e4);
+//        System.out.println("---------------Listo electro 3-----------------");
+        
+        
+        for (Electrodomestico electroX : listaElectro) {
+            
+            System.out.println(electroX);
+        }
         
 //        System.out.println("-------------lavadora---------------");
 //        
