@@ -3,6 +3,9 @@
 package Main;
 
 import Entities.Electrodomestico;
+import Entities.Lavadora;
+import Entities.Televisor;
+import Enum.Color;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -68,41 +71,59 @@ public class Electrodom {
         
         ArrayList<Electrodomestico> listaElectro = new ArrayList();
         
-        Electrodomestico e1 = new Electrodomestico();
-        e1.menuElectrodomestico(e1);
-        listaElectro.add(e1);
+        Lavadora lav = new Lavadora();
+        lav.crearLavadora(lav);
+//        lav.precioFinal(lav);
+        listaElectro.add(lav);
+        
         System.out.println("---------------Listo electro 1-----------------");
         
-        Electrodomestico e2 = new Electrodomestico();
-        e2.menuElectrodomestico(e2);
-        listaElectro.add(e2);
+        Televisor tele = new Televisor();
+        tele.crearTele(tele);
+//        tele.precioFinal(tele);
+        listaElectro.add(tele);
+
         System.out.println("---------------Listo electro 2-----------------");
         
-//        Electrodomestico e3 = new Electrodomestico();
-//        e3.menuElectrodomestico();   
-//        listaElectro.add(e3);
-//        System.out.println("---------------Listo electro 3-----------------");
-//        
-//        Electrodomestico e4 = new Electrodomestico();
-//        e2.menuElectrodomestico();
-//        listaElectro.add(e4);
-//        System.out.println("---------------Listo electro 3-----------------");
+
+        listaElectro.add(new Televisor(50, true, 1000, Color.BLANCO , 'a', 50));
+        listaElectro.add(new Televisor(35, true, 1000, Color.GRIS , 'f', 60));
         
-        
-        for (Electrodomestico electroX : listaElectro) {
-            
-            System.out.println(electroX);
+        double precioTV = 0;
+        double precioLV = 0;
+        for (Electrodomestico elect : listaElectro) {    
+            if (elect instanceof Lavadora) {
+                Lavadora E = (Lavadora) elect;
+                E.precioFinal(E);
+                precioLV+= E.getPrecio();
+                continue;
+            }
+            if (elect instanceof Televisor) {
+                Televisor T = (Televisor) elect;   
+                T.precioFinal(T);
+                precioTV+= T.getPrecio();
+            }
         }
-        
-//        System.out.println("-------------lavadora---------------");
-//        
-//         Lavadora lavadora = new Lavadora();
-//        lavadora.crearLavadora();
-//        
-//        System.out.println("-----------------televisor--------------");
-//                Televisor tele = new Televisor();
-//                tele.crearTele();
-//       
-    }
+        System.out.println("Precio de lavadoras " + precioLV);
+        System.out.println("Precio de TVs" + precioTV);
+        System.out.println("El precio total es de: " + (precioTV+precioLV));
     
+    }
+//    System.out.println("Que electrodomestico cotizar?");
+//        System.out.println("1.Lavadora"+"\n");
+//        System.out.println("2.Televisor"+"\n");
+//        System.out.println("3.Salir");
+//        int electro = scan.nextInt();
+//        switch(electro){
+//            case 1: 
+//                Lavadora lava = new Lavadora();
+//                lava.crearLavadora((Lavadora)elecX);
+//                break;
+//            case 2:
+//                Televisor tele = new Televisor();
+//                tele.crearTele((Televisor)elecX);
+//                break;
+//            case 3:
+//                break;
+//        }
 }

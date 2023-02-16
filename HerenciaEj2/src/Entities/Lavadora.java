@@ -32,11 +32,9 @@ public final class Lavadora extends Electrodomestico{
       super.crearElectrodomestico(lava);
       System.out.println("Indique la carga del lavarropas: ");
       lava.setCarga(scan.nextInt());
-     precioFinal(lava);
   }
    
      public void precioFinal(Lavadora lava){
-    lava.getPrecio();
     System.out.println(lava.getPrecio());
     if (carga > 30) {
         lava.setPrecio(lava.getPrecio()+ 500);
@@ -46,7 +44,7 @@ public final class Lavadora extends Electrodomestico{
 
     @Override
     public String toString() {
-        return "Lavadora{" + "carga=" + carga + '}';
+        return "Lavadora{" + "carga=" + carga + '}' + super.toString();
     }
      
     

@@ -46,22 +46,22 @@ public final class Televisor extends Electrodomestico{
     public void crearTele(Televisor tele){
         super.crearElectrodomestico(tele);
       System.out.println("Indique las pulgadas del TV: ");
-      this.pulgadas = scan.nextInt();
+      tele.setPulgadas(scan.nextInt());
         System.out.println("Indique si posee sintonizador: S/N");
         String respuesta = scan.next();
-        this.sintonizador = respuesta.equalsIgnoreCase("s");
-        precioFinal();
+        tele.setSintonizador(respuesta.equalsIgnoreCase("S"));
+       
     }
     
-    public void precioFinal(){
-        super.getPrecio();
-        if (pulgadas>40) {
-            this.precio = (precio*1.3);
+    public void precioFinal(Televisor tele){
+
+        if (tele.getPulgadas()>40) {
+            tele.setPrecio(tele.getPrecio()*1.3);
         }
-        if (sintonizador) {
-            this.precio = precio+500;
+        if (tele.isSintonizador()) {
+             tele.setPrecio(tele.getPrecio()+500);
         }
-        System.out.println("El precio final del TV es: "+ precio);
+        System.out.println("El precio final del TV es: "+ tele.getPrecio());
     }
 
     @Override
