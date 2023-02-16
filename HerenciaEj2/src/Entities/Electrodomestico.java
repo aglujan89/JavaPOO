@@ -59,13 +59,10 @@ public class Electrodomestico {
     public void setPeso(int peso) {
         this.peso = peso;
     }
-
-
-    
-    
+ 
     public void crearElectrodomestico(Electrodomestico elecX){
-        elecX.precio = 1000;
-        System.out.println("El precio base es de " + precio);
+        elecX.setPrecio(1000);
+        System.out.println("El precio base es de " + elecX.getPrecio());
         System.out.println("Ingrese el consumo energetico del electrodomestico: ");
         comprobarConsumoEnergetico(elecX);
         System.out.println("Ingrese el color del electrodomestico: ");
@@ -144,32 +141,11 @@ public class Electrodomestico {
             elecX.setPrecio(elecX.getPrecio()+100);
         }
     }
-    
-    public void menuElectrodomestico(Electrodomestico e1){
-        System.out.println("Que electrodomestico cotizar?");
-        System.out.println("1.Lavadora"+"\n");
-        System.out.println("2.Televisor"+"\n");
-        System.out.println("3.Salir");
-        int electro = scan.nextInt();
-        switch(electro){
-            case 1: 
-                Lavadora lava = new Lavadora();
-                lava.crearLavadora(lava);
-                break;
-            case 2:
-                Televisor tele = new Televisor();
-                tele.crearTele(tele);
-                break;
-            case 3:
-                break;
-        }
-               
-                
-    }    
+     
 
     @Override
     public String toString() {
-        return "Electrodomestico{" + "precio=" + precio + ", color=" + color + ", consumo=" + consumo + ", peso=" + peso + '}';
+        return "precio=" + precio + ", color=" + color + ", consumo=" + consumo + ", peso=" + peso + '}';
     }
     
 }
