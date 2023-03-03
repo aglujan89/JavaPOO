@@ -19,12 +19,11 @@ public class HerenciasEj4Ex {
 //Sistema Gestión Facultad. Se pretende realizar una aplicación para una facultad que gestione
 //la información sobre las personas vinculadas con la misma y que se pueden clasificar en tres
 //tipos: estudiantes, profesores y personal de servicio.
-    public static Scanner scan = new Scanner(System.in);
+    public static Scanner scan = new Scanner(System.in).useDelimiter("\n");
     
     public static void main(String[] args) {
     serviceFacu serv = new serviceFacu();
-    serv.cambioEstadoCivil();
-    serv.cambioDespacho();
+    serv.menu();
     
     }
     

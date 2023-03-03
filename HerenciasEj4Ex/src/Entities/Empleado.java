@@ -10,7 +10,7 @@ import Enum.EstadoCivil;
  */
 //Con respecto a los empleados, sean del tipo que sean, hay que saber su año de
 //incorporación a la facultad y qué número de despacho tienen asignado.
-public class Empleado extends Persona{
+public abstract class Empleado extends Persona{
     
     protected Integer anioIncorp;
     protected Integer nroDespacho;

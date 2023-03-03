@@ -40,7 +40,8 @@ public final class PersonalServicio extends Empleado {
 
     @Override
     public String toString() {
-        return "PersonalServicio{" + "seccion=" + seccion + '}';
+        return "Personal Servicio--> " + nombre + " " + apellido + " "+ "// DNI= " + ID + " // " + estadoCivil + "// Año de ingreso= " + anioIncorp + 
+                " // Despacho: " + nroDespacho + " // seccion=" + seccion;
     }
     
     

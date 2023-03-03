@@ -18,7 +18,7 @@ public class Estudiante extends Persona{
     }
 
     public Estudiante(ArrayList<String> curso) {
-        this.curso = curso;
+        this.curso = new ArrayList();
     }
 
     public Estudiante(ArrayList<String> curso, String nombre, String apellido, Integer ID, EstadoCivil estadoCivil) {
@@ -38,7 +38,7 @@ public class Estudiante extends Persona{
 
     @Override
     public String toString() {
-        return "Estudiante{" + "curso=" + curso + '}';
+        return "Estudiante--> " + nombre + " " + apellido + " // DNI= " + ID + " // " + estadoCivil + " // curso= " + curso;
     }
     
 }

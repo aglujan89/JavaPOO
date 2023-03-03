@@ -10,7 +10,7 @@ import Enum.EstadoCivil;
  */
 //Por cada persona, se debe conocer, al menos, su nombre y apellidos, su número de
 //identificación y su estado civil.
-public class Persona {
+public abstract class Persona {
     protected String nombre;
     protected String apellido;
     protected Integer ID;

@@ -39,11 +39,14 @@ public final class Profesor extends Empleado {
         this.materia = materia;
     }
 
-    
+    public void cambiarDepto (String materia) {
+        this.materia = materia;
+    }
     
     @Override
     public String toString() {
-        return "Profesor{" + "materia=" + materia + '}';
+        return "Profesor--> " + nombre + " " + apellido + " // DNI= " + ID + " " + estadoCivil + " // Año de ingreso= " + anioIncorp + 
+                " // Despacho: " + nroDespacho+ " // materia= " + materia;
     }
 
     
