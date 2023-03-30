@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Enum">
+  <ClassDiagramComponents>
+    <Enum name="cantCuotas" package="Enum" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Literals>
+        <Literal name="UNO"/>
+        <Literal name="TRES"/>
+        <Literal name="SEIS"/>
+        <Literal name="DOCE"/>
+      </Literals>
+    </Enum>
+    <Enum name="formPago" package="Enum" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Literals>
+        <Literal name="EFECTIVO"/>
+        <Literal name="TARJETA"/>
+        <Literal name="MERCADO_DE_PAGO"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>
