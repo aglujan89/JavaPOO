@@ -12,12 +12,11 @@ import javax.persistence.Persistence;
  */
 public class DAO<T> {
 
-    protected EntityManagerFactory emf = Persistence.createEntityManagerFactory("libreriaJPA");
+    protected final EntityManagerFactory emf = Persistence.createEntityManagerFactory("libreriaJPA");
     protected EntityManager em = emf.createEntityManager();
 
     protected void conectar() {
         try {
-
             if (!em.isOpen()) {
                 em = emf.createEntityManager();
             }

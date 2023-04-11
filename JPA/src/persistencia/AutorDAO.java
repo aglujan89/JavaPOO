@@ -12,7 +12,7 @@ import java.util.List;
 public class AutorDAO extends DAO<Autor> {
     
     public void guardarAutor(Autor autor){
-        super.guardar(autor);
+        guardar(autor);
     }
     
     public void eliminarAutor(Integer id) throws Exception {

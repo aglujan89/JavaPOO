@@ -9,7 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
+
 
 /**
  *
@@ -27,9 +28,9 @@ public class Libro implements Serializable {
     private Integer ejemPrestados;
     private Integer ejemRestantes;
     private Boolean alta;
-    @OneToMany
+    @ManyToOne
     private Autor autor;
-    @OneToMany
+    @ManyToOne
     private Editorial editorial;
 
     public Libro() {

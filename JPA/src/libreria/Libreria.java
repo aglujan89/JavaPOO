@@ -20,7 +20,7 @@ public class Libreria {
         
         try {
             LibreriaServicio serv = new LibreriaServicio();
-//            AutorServicio servA = new AutorServicio();
+            AutorServicio servA = new AutorServicio();
             serv.menu();
              
         } catch (Exception e) {
