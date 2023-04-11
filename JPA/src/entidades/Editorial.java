@@ -2,22 +2,32 @@
  */
 package entidades;
 
+import java.io.Serializable;
+import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  *
  * @author fitog
  */
-public class Editorial {
+@Entity
+public class Editorial implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String nombre;
-    private Boolean alta;
+    private Boolean alta = Boolean.TRUE;
 
     public Editorial() {
     }
 
-    public Editorial(Integer id, String nombre, Boolean alta) {
+    public Editorial(Integer id, String nombre) {
         this.id = id;
         this.nombre = nombre;
-        this.alta = alta;
     }
 
     public Integer getId() {
@@ -45,10 +55,40 @@ public class Editorial {
     }
 
     @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 59 * hash + Objects.hashCode(this.id);
+        hash = 59 * hash + Objects.hashCode(this.nombre);
+        hash = 59 * hash + Objects.hashCode(this.alta);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Editorial other = (Editorial) obj;
+        if (!Objects.equals(this.nombre, other.nombre)) {
+            return false;
+        }
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return Objects.equals(this.alta, other.alta);
+    }
+
+   
+    
+    @Override
     public String toString() {
         return "Editorial{" + "id=" + id + ", nombre=" + nombre + ", alta=" + alta + '}';
     }
-    
-    
-    
+
 }

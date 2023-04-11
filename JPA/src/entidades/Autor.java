@@ -2,22 +2,33 @@
  */
 package entidades;
 
+import java.io.Serializable;
+import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  *
  * @author fitog
  */
-public class Autor {
+@Entity
+public class Autor implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private String nombre;
-    private Boolean alta;
+    private Boolean alta = Boolean.TRUE;
 
     public Autor() {
     }
 
-    public Autor(Integer id, String nombre, Boolean alta) {
+    public Autor(Integer id, String nombre) {
         this.id = id;
         this.nombre = nombre;
-        this.alta = alta;
     }
 
     public Integer getId() {
@@ -45,11 +56,39 @@ public class Autor {
     }
 
     @Override
-    public String toString() {
-        return "Autor{" + "id=" + id + ", nombre=" + nombre + ", alta=" + alta + '}';
+    public int hashCode() {
+        int hash = 5;
+        hash = 83 * hash + Objects.hashCode(this.id);
+        hash = 83 * hash + Objects.hashCode(this.nombre);
+        hash = 83 * hash + Objects.hashCode(this.alta);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Autor other = (Autor) obj;
+        if (!Objects.equals(this.nombre, other.nombre)) {
+            return false;
+        }
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return Objects.equals(this.alta, other.alta);
     }
     
     
-    
-    
+    @Override
+    public String toString() {
+        return "Autor{" + "id=" + id + ", nombre=" + nombre + ", alta=" + alta + '}';
+    }
+
 }

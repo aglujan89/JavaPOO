@@ -2,31 +2,46 @@
  */
 package entidades;
 
+
+import java.io.Serializable;
+import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 /**
  *
  * @author fitog
  */
-public class Libro {
+@Entity
+public class Libro implements Serializable {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long isbn;
     private String titulo;
     private Integer anio;
     private Integer ejemplares;
-    private Integer ejemplaresPrestados;
-    private Integer ejemplaresRestantes;
+    private Integer ejemPrestados;
+    private Integer ejemRestantes;
     private Boolean alta;
+    @OneToMany
     private Autor autor;
+    @OneToMany
     private Editorial editorial;
 
     public Libro() {
     }
 
-    public Libro(Long isbn, String titulo, Integer anio, Integer ejemplares, Integer ejemplaresPrestados, Integer ejemplaresRestantes, Boolean alta, Autor autor, Editorial editorial) {
+    public Libro(Long isbn, String titulo, Integer anio, Integer ejemplares, Integer ejemPrestados, Integer ejemRestantes, Boolean alta, Autor autor, Editorial editorial) {
         this.isbn = isbn;
         this.titulo = titulo;
         this.anio = anio;
         this.ejemplares = ejemplares;
-        this.ejemplaresPrestados = ejemplaresPrestados;
-        this.ejemplaresRestantes = ejemplaresRestantes;
+        this.ejemPrestados = ejemPrestados;
+        this.ejemRestantes = ejemRestantes;
         this.alta = alta;
         this.autor = autor;
         this.editorial = editorial;
@@ -64,20 +79,20 @@ public class Libro {
         this.ejemplares = ejemplares;
     }
 
-    public Integer getEjemplaresPrestados() {
-        return ejemplaresPrestados;
+    public Integer getEjempPrestados() {
+        return ejemPrestados;
     }
 
-    public void setEjemplaresPrestados(Integer ejemplaresPrestados) {
-        this.ejemplaresPrestados = ejemplaresPrestados;
+    public void setEjempPrestados(Integer ejemPrestados) {
+        this.ejemPrestados = ejemPrestados;
     }
 
-    public Integer getEjemplaresRestantes() {
-        return ejemplaresRestantes;
+    public Integer getEjempRestantes() {
+        return ejemRestantes;
     }
 
-    public void setEjemplaresRestantes(Integer ejemplaresRestantes) {
-        this.ejemplaresRestantes = ejemplaresRestantes;
+    public void setEjempRestantes(Integer ejemRestantes) {
+        this.ejemRestantes = ejemRestantes;
     }
 
     public Boolean getAlta() {
@@ -105,8 +120,64 @@ public class Libro {
     }
 
     @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 11 * hash + Objects.hashCode(this.isbn);
+        hash = 11 * hash + Objects.hashCode(this.titulo);
+        hash = 11 * hash + Objects.hashCode(this.anio);
+        hash = 11 * hash + Objects.hashCode(this.ejemplares);
+        hash = 11 * hash + Objects.hashCode(this.ejemPrestados);
+        hash = 11 * hash + Objects.hashCode(this.ejemRestantes);
+        hash = 11 * hash + Objects.hashCode(this.alta);
+        hash = 11 * hash + Objects.hashCode(this.autor);
+        hash = 11 * hash + Objects.hashCode(this.editorial);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Libro other = (Libro) obj;
+        if (!Objects.equals(this.titulo, other.titulo)) {
+            return false;
+        }
+        if (!Objects.equals(this.isbn, other.isbn)) {
+            return false;
+        }
+        if (!Objects.equals(this.anio, other.anio)) {
+            return false;
+        }
+        if (!Objects.equals(this.ejemplares, other.ejemplares)) {
+            return false;
+        }
+        if (!Objects.equals(this.ejemPrestados, other.ejemPrestados)) {
+            return false;
+        }
+        if (!Objects.equals(this.ejemRestantes, other.ejemRestantes)) {
+            return false;
+        }
+        if (!Objects.equals(this.alta, other.alta)) {
+            return false;
+        }
+        if (!Objects.equals(this.autor, other.autor)) {
+            return false;
+        }
+        return Objects.equals(this.editorial, other.editorial);
+    }
+
+    
+    
+    @Override
     public String toString() {
-        return "Libro{" + "isbn=" + isbn + ", titulo=" + titulo + ", anio=" + anio + ", ejemplares=" + ejemplares + ", ejemplaresPrestados=" + ejemplaresPrestados + ", ejemplaresRestantes=" + ejemplaresRestantes + ", alta=" + alta + ", autor=" + autor + ", editorial=" + editorial + '}';
+        return "Libro{" + "isbn=" + isbn + ", titulo=" + titulo + ", anio=" + anio + ", ejemplares=" + ejemplares + ", ejemPrestados=" + ejemPrestados + ", ejemRestantes=" + ejemRestantes + ", alta=" + alta + ", autor=" + autor + ", editorial=" + editorial + '}';
     }
     
     
