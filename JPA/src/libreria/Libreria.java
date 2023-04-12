@@ -4,6 +4,7 @@ package libreria;
 
 import servicios.AutorServicio;
 import servicios.LibreriaServicio;
+import servicios.LibroServicio;
 
 
 
@@ -19,8 +20,12 @@ public class Libreria {
     public static void main(String[] args) {
         
         try {
+//            LibroServicio servLib = new LibroServicio();
+//            servLib.crearLibro();
+           
             LibreriaServicio serv = new LibreriaServicio();
             AutorServicio servA = new AutorServicio();
+            System.out.println("Indique los datos del libro a ingresar: ");
             serv.menu();
              
         } catch (Exception e) {

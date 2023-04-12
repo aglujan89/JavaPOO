@@ -19,7 +19,6 @@ public class Autor implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
     private String nombre;
     private Boolean alta = Boolean.TRUE;
 

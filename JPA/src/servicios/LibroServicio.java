@@ -33,6 +33,7 @@ public class LibroServicio {
             System.out.println("Ingrese el titulo del libro:");
             libro.setTitulo(scan.next());
             System.out.println("Ingrese el año:");
+            scan.nextLine();
             libro.setAnio(scan.nextInt());
             System.out.println("Ingrese la cantidad de ejemplares:");
             libro.setEjemplares(scan.nextInt());
