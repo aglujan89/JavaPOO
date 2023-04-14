@@ -14,17 +14,12 @@ public class EditorialDAO extends DAO<Editorial>{
     public void guardarEditorial(Editorial editorial){
        guardar(editorial);
     }
-    
-     public void editarEditorial(Editorial editorial) {
-        super.editar(editorial);
-    }
-
      
      public void eliminarEditorial(Integer id) throws Exception {
         Editorial editorial = buscarPorId(id);
 //        eliminar(editorial);
         editorial.setAlta(Boolean.FALSE);
-        editar(editorial);
+        editar(editorial);  
     }
      
      public List<Editorial> listarEditoriales() throws Exception {
@@ -37,7 +32,7 @@ public class EditorialDAO extends DAO<Editorial>{
      public Editorial buscarPorId(Integer id) throws Exception {
         conectar();
         Editorial editorial = null;
-        editorial = (Editorial) em.createQuery("SELECT e FROM Editorial e WHERE e.id LIKE :id").setParameter("id", id).getSingleResult();
+        editorial = (Editorial) em.createQuery("SELECT e FROM Editorial e WHERE e.id LIKE :id").setParameter("id", id.toString()).getSingleResult();
         desconectar();
         return editorial;
     }

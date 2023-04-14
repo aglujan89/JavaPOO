@@ -32,7 +32,7 @@ public class AutorDAO extends DAO<Autor> {
     public Autor buscarPorId(Integer id) throws Exception {
         conectar();
         Autor autor = null;
-        autor = (Autor) em.createQuery("SELECT a FROM Autor a WHERE a.id LIKE :id").setParameter("id", id).getSingleResult();
+        autor = (Autor) em.createQuery("SELECT a FROM Autor a WHERE a.id LIKE :id").setParameter("id", id.toString()).getSingleResult();
 //        autor = em.find(Autor.class,id);
         desconectar();
         return autor;

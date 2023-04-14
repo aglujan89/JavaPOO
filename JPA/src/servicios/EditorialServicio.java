@@ -38,7 +38,7 @@ public class EditorialServicio {
         try{
             return DAO.buscarPorId(id);
         }catch (Exception e){
-            System.out.println("error al buscar editorial "+ e.getMessage());
+            System.out.println("Error al buscar editorial "+ e.getMessage());
             return null;
         }        
     }

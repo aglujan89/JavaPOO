@@ -23,6 +23,16 @@ public class LibroServicio {
         this.DAO = new LibroDAO();
         scan = new Scanner(System.in).useDelimiter("\n");
     }
+    
+    public void guardarLibro(Libro l){
+        try {
+            DAO.guardarLibro(l);
+        } catch (Exception e) {
+            System.out.println("ERROR AL guardar libro");
+        }
+        
+    }
+    
     public Libro crearLibro(){
         Libro libro = new Libro();
         AutorServicio servA = new AutorServicio();
@@ -113,5 +123,33 @@ public class LibroServicio {
             e.printStackTrace();
             return null;
         }
+    }
+    public Libro menuBuscar() {
+        Libro l = null;
+        try {
+            System.out.println("Elija una forma de buscar el libro: ");
+            System.out.println("");
+            System.out.println("1. Buscar libro por su ISBN ");
+            System.out.println("2. Buscar libro por titulo ");
+            int op = scan.nextInt();
+            switch (op) {
+                case 1:
+                    System.out.println("INGRESE el ISBN");
+                    Long is = scan.nextLong();
+                    l = buscarPorId(is);
+                    break;
+                case 2:
+                    System.out.println("INGRESE el titulo");
+                    String tit = scan.next();
+                    l= buscarPorNombre(tit);
+                    break;
+                default:
+                    break;
+            }
+        } catch (Exception e) {
+            System.out.println("Opcion incorrecta!!!");
+            menuBuscar();
+        }
+        return l;
     }
 }

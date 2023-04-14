@@ -5,6 +5,7 @@ package entidades;
 
 import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -25,9 +26,10 @@ public class Libro implements Serializable {
     private Integer ejemPrestados;
     private Integer ejemRestantes;
     private Boolean alta;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    //cascade permite insertar datos de manera manual
     private Autor autor;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Editorial editorial;
 
     public Libro() {

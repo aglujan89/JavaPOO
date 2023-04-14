@@ -33,7 +33,7 @@ public class LibroDAO extends DAO<Libro>{
     public Libro buscarPorId(Long isbn) throws Exception {
         conectar();
         Libro libro = null;
-        libro = (Libro) em.createQuery("SELECT l FROM Libro l WHERE l.isbn = :isbn").setParameter("isbn", isbn).getSingleResult();
+        libro = (Libro) em.createQuery("SELECT l FROM Libro l WHERE l.isbn LIKE :isbn").setParameter("isbn", isbn.toString()).getSingleResult();
         desconectar();
         return libro;
     }
