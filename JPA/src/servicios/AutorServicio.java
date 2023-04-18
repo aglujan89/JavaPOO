@@ -48,7 +48,7 @@ public class AutorServicio {
         try {
             return DAO.buscarPorNombre(nombre);
         } catch (Exception e) {
-            System.out.println("Error al buscar autor por nombre " + e.getMessage());
+            System.out.println("No se encuentra ningun autor con ese nombre " + e.getMessage());
             return null;
         }
     }

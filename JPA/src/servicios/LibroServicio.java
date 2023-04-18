@@ -43,6 +43,10 @@ public class LibroServicio {
             System.out.println("Ingrese el titulo del libro:");
             libro.setTitulo(scan.next());
             System.out.println("Ingrese el año:");
+            
+//            int anio = Integer.parseInt(scan.next());---->evita el error de guardado de memoria del nextInt.
+//            Integer anio = Integer.valueOf(scan.next());---->evita el error de guardado de memoria del nextInt.
+
             scan.nextLine();
             libro.setAnio(scan.nextInt());
             System.out.println("Ingrese la cantidad de ejemplares:");
